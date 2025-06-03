@@ -74,34 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  // Progress Bars Animation
-  const animateProgressBars = () => {
-    document.querySelectorAll(".progress-fill").forEach((bar) => {
-      bar.style.width = bar.dataset.width + "%";
     });
-  };
-  window.addEventListener("load", animateProgressBars);
+    
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
 
-  // Header Hide/Show on Scroll
-  let lastScroll = 0;
-  const header = document.querySelector(".header");
-  const scrollThreshold = 50;
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
 
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-      header.classList.remove("hide");
-      return;
-    }
-
-    if (currentScroll > lastScroll + scrollThreshold) {
-      header.classList.add("hide");
-    } else if (currentScroll < lastScroll - scrollThreshold) {
-      header.classList.remove("hide");
-    }
-
-    lastScroll = currentScroll;
-  });
+  // เปลี่ยนสไลด์ทุก 5 วินาที
+  setInterval(nextSlide, 5000);
 });
