@@ -117,3 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
+
+  // Animate Progress Bars
+document.querySelectorAll(".progress-fill").forEach((fill) => {
+  const targetWidth = fill.getAttribute("data-width");
+  fill.style.width = targetWidth + "%";
+});
