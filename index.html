@@ -7,6 +7,7 @@
   <title>หน้าแรก | ETHEREAL</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
   <link rel="icon" type="image/png" href="assets/img/logo2.png" />
 </head>
 
@@ -25,7 +26,7 @@
       <!-- เมนูหลัก -->
       <div class="nav__menu" id="nav-menu">
         <ul class="nav-links">
-          <li><a href="#top" class="nav__link">หน้าแรก</a></li>
+          <li><a href="index.html#announcement-section" class="nav__link">หน้าแรก</a></li>
           <li>
             <a href="index.html#members-section" class="nav__link">ทำความรู้จัก</a>
           </li>
@@ -35,8 +36,11 @@
           <li>
             <a href="members.html#members-section" class="nav__link">สมาชิก</a>
           </li>
-          <!-- Dropdown Menu -->
-          <li><a href="contact.html" class="nav__link">ติดต่อ</a></li>
+          <li class="nav__item nav__dropdown">
+            <a href="contact.html" class="nav__link">ติดต่อ <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://forms.gle/bUtKLjGrQbjBuXp39" class="nav__link">ขอเพลง</a></li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -49,9 +53,21 @@
   </header>
   <!--Slider and Background-->
   <div class="background-container">
-    <img src="assets/img/scbp.jpg" alt="Background Image" class="background-img" />
+    <div class="slider">
+      <div class="slide active">
+        <img src="assets/img/scbp.jpg" alt="Slide 1" />
+      </div>
+      <div class="slide">
+        <img src="assets/img/ann3.png" alt="Slide 2" />
+      </div>
+      <div class="slide">
+        <img src="assets/img/ann4.png" alt="Slide 3" />
+      </div>
+      <div class="slide">
+        <img src="assets/img/ann3.png" alt="Slide 4" />
+      </div>
+    </div>
   </div>
-
   <!-- แก้ไขส่วนประกาศเป็นแบบ Grid -->
   <section id="announcement-section" class="announcement-section">
     <h2 class="section-title">ประกาศล่าสุด</h2>
@@ -60,20 +76,16 @@
       <!-- ประกาศที่ 1 -->
       <article class="announcement-card">
         <div class="card-image">
-          <img src="assets/img/ann1.jpg" alt="ประกาศการลงทะเบียนชุมนุม" />
-          <div class="date-badge">27 พ.ค. 68</div>
+          <img src="assets/img/ann4.png" alt="ประกาศการตรวจเครื่องแต่งกาย" />
+          <div class="date-badge">6 มิ.ย. 68</div>
         </div>
         <div class="card-content">
           <h3>
-            ประกาศการลงทะเบียนชุมนุม ประจำปีการศึกษา 2568
+            ประกาศการตรวจเครื่องแต่งกาย ในทุกระดับชั้น ห้อง 1-3
           </h3>
           <p>
-            ประกาศการลงทะเบียนชุมนุม ของนักเรียนโรงเรียนบ้านไผ่ ประจำปีการศึกษา 2568 มาแล้วครับ ❗️
-
-            โดยพี่ๆน้องๆชาวม่วงขาวทุกคน สามารถลงทะเบียนชุมนุมได้ตั้งแต่เวลา
-
-            ⏰ 27 พฤษภาคม เวลา 12:00 และจะปิดระบบในวันที่
-            ⏰ 28 พฤษภาคม เวลา 14:00
+            ประกาศการตรวจเครื่องแต่งกาย ในทุกระดับชั้น ห้อง 1-3 โดยการตรวจจะเริ่มหลังช่วงเวลาเลิกแถว
+            สถานที่อาจมีเปลี่ยนแปลงได้ขึ้นอยู่กับคณะครูที่ปรึกษาแต่ละระดับชั้นและห้อง
           </p>
           <a href="https://www.instagram.com/p/DKJAo29PXwy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
             class="read-more">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
