@@ -77,45 +77,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
 document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slide');
   let currentSlide = 0;
 
-  // ฟังก์ชันเลื่อนไปสไลด์ถัดไป
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active', 'previous');
+      if (i === index) {
+        slide.classList.add('active');
+      } else if (i === (index - 1 + slides.length) % slides.length) {
+        slide.classList.add('previous');
+      }
+    });
+  }
+
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
-    // เลื่อน slider โดยคำนวณตำแหน่งใหม่
-    slider.style.transform = `translateX(-${currentSlide * 25}%)`;
+    showSlide(currentSlide);
   }
 
-  // ฟังก์ชันไปยังสไลด์ที่กำหนด (เผื่อต้องการใช้ในอนาคต)
-  function goToSlide(index) {
-    currentSlide = index;
-    slider.style.transform = `translateX(-${currentSlide * 25}%)`;
-  }
-
-  // เริ่มการเลื่อนอัตโนมัติหลังจาก 3 วินาที
-  setTimeout(() => {
-    // เปลี่ยนสไลด์ทุก 5 วินาที
-    setInterval(nextSlide, 5000);
-  }, 3000); // รอ 3 วินาทีก่อนเริ่มเลื่อน
-
-  // เพิ่ม event listener สำหรับการควบคุมด้วยมือ (ถ้าต้องการ)
-  // เช่น เมื่อ hover ให้หยุดการเลื่อน
-  let intervalId;
-  
-  function startSlider() {
-    intervalId = setInterval(nextSlide, 5000);
-  }
-  
-  function stopSlider() {
-    clearInterval(intervalId);
-  }
-
-  // เริ่มการเลื่อนหลังจาก 3 วินาที
-  setTimeout(startSlider, 3000);
-
-  // หยุดการเลื่อนเมื่อ hover (ถ้าต้องการ)
-  slider.addEventListener('mouseenter', stopSlider);
-  slider.addEventListener('mouseleave', startSlider);
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000); // เลื่อนทุก 5 วินาที
 });
+
+  // Smooth hide/show header on scroll
+  let lastScrollTop = 0;
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 50) {
+      // เลื่อนลง -> ซ่อน header
+      header.classList.add("hide");
+    } else {
+      // เลื่อนขึ้น -> แสดง header
+      header.classList.remove("hide");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
