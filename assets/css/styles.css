@@ -722,13 +722,14 @@ img {
   }
 }
 <!--Background Slider Styles-->
+/* =============== BACKGROUND SECTION (แก้ไขแล้ว) =============== */
 .background-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* สำคัญ - ซ่อนส่วนที่เกิน */
 }
 
 .slider {
@@ -736,10 +737,11 @@ img {
   transition: transform 0.8s ease-in-out;
   height: 100%;
   width: 400%; /* สำหรับ 4 ภาพ */
+  transform: translateX(0%); /* เริ่มต้นที่รูปแรก */
 }
 
 .slide {
-  width: 100%;
+  width: 25%; /* แต่ละสไลด์จะมีขนาด 25% ของ slider (400% / 4 = 25%) */
   height: 100%;
   flex-shrink: 0;
   display: flex;
@@ -754,16 +756,40 @@ img {
   display: block;
 }
 
+/* Overlay สำหรับข้อความ (ถ้าต้องการ) */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.overlay h1 {
+  font-size: 80px;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
 
 /* Responsive */
 @media (max-width: 768px) {
   .background-container {
     height: 50vh;
   }
+  
+  .overlay h1 {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 480px) {
   .background-container {
     height: 40vh;
+  }
+  
+  .overlay h1 {
+    font-size: 28px;
   }
 }
