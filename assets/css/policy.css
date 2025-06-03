@@ -176,6 +176,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  
 }
 
 .policy-card {
@@ -184,6 +185,8 @@
   border-radius: 12px;
   transition: transform 0.3s ease;
   border-left: 4px solid #6c5ce7;
+  display: flex;
+  flex-direction: column;
 }
 
 .policy-card:hover {
